@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <script>
+        /* 
+        When a browser loads a page, it loads it from the top down.
+        If a script tag is written at the top of the page, it runs a line by line as it reads it.
+        When the code executes, the page has not loaded, and the DOM object will not work.
+
+        it will slow down the loading when js has to be loaded first before html page
+        */
+
+        /*
+        onload event will be triggered after the page completes loading. 
+        
+        However, in some cases, it may be necessary to place JavaScript in the head 
+        section, such as when it is needed to initialize the page or to load external 
+        scripts. In such cases, it is important to use techniques such as asynchronous 
+        loading or defer attribute to minimize the impact on the page load time.
+         */
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                alert("hello");
+            };
+        }
+    </script>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+  </body>
+</html>

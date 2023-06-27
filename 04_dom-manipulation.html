@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script type="text/javascript">
+    window.onload = function () {
+      // add San Jose at the end of the city list
+      myClick("btn01", function () {
+        var li = document.createElement("li");
+        var gzText = document.createTextNode("San Jose");
+
+        li.appendChild(gzText);
+
+        var city = document.getElementById("cities");
+        //parentNode.appendCHild;
+        city.appendChild(li);
+      });
+      // add San Jose at the front of the city list
+      myClick("btn02", function () {
+        var li = document.createElement("li");
+        var gzText = document.createTextNode("San Jose");
+        li.append(gzText);
+
+        var bj = document.getElementById("bj");
+        var city = document.getElementById("cities");
+        //parentNode.insertBefore(new node, old node);
+        city.insertBefore(li, bj);
+      });
+
+      // Replace Chicago with San Jose
+      myClick("btn03", function () {
+        var li = document.createElement("li");
+        var innerText = document.createTextNode("San Jose");
+        li.appendChild(innerText);
+
+        var bj = document.getElementById("bj");
+
+        /* 
+        parentNode.replaceChild(new node, old node);
+        */
+        parentNode = document.getElementById("cities");
+        parentNode.replaceChild(li, bj);
+      });
+
+      //delete bj(chicago) node
+      myClick("btn04", function () {
+        /* 
+        parentNode.removeChild();
+        */
+        var bj = document.getElementById("bj");
+        var parentNode = document.getElementById("cities");
+        parentNode.removeChild(bj);
+      });
+
+      //read #city innerHTML
+      myClick("btn05", function () {
+        var city = document.getElementById("cities");
+        alert(city.innerHTML);
+      });
+
+      //read #bj innerHTML
+      myClick("btn06", function() {
+        var bj = document.getElementById("bj");
+        bj.innerHTML = "City Development";
+      });
+
+      //again add San Jose to the cities
+      myClick("btn07", function(){
+        var city = document.getElementById("cities");
+        var li = document.createElement("li");
+        li.innerHTML = "San Jose II";
+        city.appendChild(li);
+      });
+
+    };
+
+
+
+    function myClick(idStr, fun) {
+      var btn = document.getElementById(idStr);
+      //function is a function with DOM manipulation
+      btn.onclick = fun;
+    }
+  </script>
+</head>
+
+<body>
+  <div id="total">
+    <div class="inner">
+      <p>which city do you like?</p>
+
+      <ul id="cities">
+        <li id="bj">Chicago</li>
+        <li>New York</li>
+        <li>D.C</li>
+        <li>San Francisco</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="btnList">
+    <div><button id="btn01">create "San Jose" under #cities</button></div>
+    <div><button id="btn02">put "San Jose" at the front of #bj</button></div>
+    <div><button id="btn03">use "San Jose" to place #bj node</button></div>
+    <div><button id="btn04">delete #bj node</button></div>
+    <div><button id="btn05">read cities innerHTML</button></div>
+    <div><button id="btn06">set the #bj innerHTML</button></div>
+    <div><button id="btn07">create "San Jose II", and add it to the #cities</button></div>
+  </div>
+</body>
+
+</html>

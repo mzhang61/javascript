@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div id="box2"></div>
+    <div class="box1">I'm the first box
+        <div>I'm inside the box1</div>
+    </div>
+
+    <div class="box1">I'm the first box
+        <div>I'm inside the box1</div>
+    </div>
+
+    <div class="box1">I'm the first box
+        <div>I'm inside the box1</div>
+    </div>
+
+    <div class="box1">I'm the first box
+        <div>I'm inside the box1</div>
+    </div>
+
+    <div></div>
+
+    <script type="text/javascript">
+        /* 
+        retrive bod:
+            var body = document.getElementsByTagName("body")[0];
+
+        root element:
+            var html = document.documentElement;
+
+        all the elements:
+            var all = document.all;
+            console.log(all.length);
+            for (var i=0; i<all.length; i++) {
+                console.log(all[i]);
+            }
+        same as above: all = document.getElementsByTagName("*"); 
+            var = divs = documents.getElementsByTagName("div");
+        
+        select class:
+            var box1 = document.getElementsByClassName("box1"); // does not support IE8 below versions
+
+        retrive 
+        */
+
+        /*
+        document.querySelector():
+            -able to select a css selector to retrive the element 
+            -IE8 does not have getElemetnsByClassName(), but can use querySelector() instead
+            -this method will returns only one element, if many satisfy the condition, only retrive the first one
+         */
+        var div = document.querySelector(".box1 div");
+        console.log(div.innerHTML);
+
+        var box1 = document.querySelector(".box1");
+        console.log(box1.innerHTML);
+
+        /* document.querySelectorAll()
+            -put the elements met the condition into an array. it will return an array
+        */
+       box1 = document.querySelectorAll(".box1");
+      console.log(box1);
+    </script>
+</body>
+</html>

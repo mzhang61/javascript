@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    /* 
+    Using addEventListener() can bind multiple response functions simultaneously for the
+    same event of an element, so that when the event is triggered, the response function
+    will execute in the order that the function was bound.
+     */
+    window.onload = function(){
+        var btn01 = document.getElementById("btn01");
+        bind(btn01, "click", function(){
+            /* 
+            this, in addEventListener(), is the objedt for binding the event
+            this in attachEvent() is window
+
+            */
+            alert(this);
+        });
+
+        function bind(obj, eventStr, callback){
+            if(obj.addEventListener){
+                //compatible to the most browsers
+                obj.addEventListener(eventStr, callback, false);
+            }
+            else {
+                //IE8 and below
+                obj.attachEvent("on"+eventStr, function(){
+                    callback.call(obj);                
+            });
+        }
+        }
+    }
+</script>
+<body>
+    <button id="btn01">click me</button>
+</body>
+</html>
