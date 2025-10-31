@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
-        #info{
+        #info {
             width: 300px;
             height: 500px;
             background-color: #bfa;
             overflow: auto;
-           
-            
-            
+
+
+
 
         }
-
-
     </style>
     <script type="text/javascript">
-        window.onload = function(){
+        window.onload = function () {
             var info = document.getElementById("info");
-            var inputs = documents.getElementByTagName("input");
+            var inputs = document.getElementsByTagName("input");
 
-            info.onscroll = function() {
-                if(info.scrollHeight - info.scrollTop == info.clientHeight){
+            info.onscroll = function () {
+                if (info.scrollHeight - info.scrollTop == info.clientHeight) {
                     inputs[0].disabled = false;
                     inputs[1].disabled = false;
                 }
@@ -33,6 +32,7 @@
         }
     </script>
 </head>
+
 <body>
     <h3>read the agreement</h3>
     <p id="info">
@@ -87,7 +87,45 @@
         This is our agreement to register
         This is our agreement to register
     </p>
-    <input type="checkbox" disabled="disabled" /> agree 
+    <input type="checkbox" disabled="disabled" /> agree
     <input type="submit" value="register" disabled="disabled" />
 </body>
+<!-- 
+    // --- Size related ---
+element.clientWidth      // Visible width (excluding scrollbar)
+element.clientHeight     // Visible height (excluding scrollbar)
+element.offsetWidth      // Total width (including borders)
+element.offsetHeight     // Total height (including borders)
+element.scrollWidth      // Full content width (including hidden overflow)
+element.scrollHeight     // Full content height (including hidden overflow)
+
+// --- Scroll position ---
+element.scrollTop        // Distance scrolled from the top
+element.scrollLeft       // Distance scrolled from the left
+
+// --- Position relative to parent ---
+element.offsetTop        // Distance from top of offsetParent
+element.offsetLeft       // Distance from left of offsetParent
+
+// --- Viewport (window) size ---
+window.innerWidth        // Viewport width (including scrollbar)
+window.innerHeight       // Viewport height (including scrollbar)
+document.documentElement.clientWidth   // Viewport width (excluding scrollbar)
+document.documentElement.clientHeight  // Viewport height (excluding scrollbar)
+
+// --- Page scroll position ---
+window.scrollX           // Horizontal scroll distance
+window.scrollY           // Vertical scroll distance
+window.pageXOffset       // Same as scrollX (more compatible)
+window.pageYOffset       // Same as scrollY (more compatible)
+
+// --- Common checks ---
+element.scrollHeight - element.scrollTop === element.clientHeight
+// → Check if the element is scrolled to the bottom
+
+window.scrollY + window.innerHeight >= document.body.scrollHeight
+// → Check if the page is scrolled to the bottom
+
+-->
+
 </html>

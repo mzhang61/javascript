@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
-        #box1{
+        #box1 {
             width: 100px;
             height: 100px;
             background-color: red;
             position: absolute;
         }
 
-        #box2{
+        #box2 {
             width: 100px;
             height: 100px;
             background-color: yellow;
@@ -24,20 +24,24 @@
         }
     </style>
     <script>
-        window.onload = function(){
+        window.onload = function () {
             console.log(box2.offsetLeft);
             console.log(box2.offsetTop);
             var box1 = document.getElementById("box1");
             //mouse is pressed over an HTML element
-            box1.onmousedown = function(event) {
+            box1.onmousedown = function (event) {
                 event = event || window.event;
                 //div offset = mouse x cordinate - box1.offset, so the position ol is equal to the cursor position in the box1
+                var l = event.clientX;
+                var t = box1.offsetLeft;
+                console.log(l);
+                console.log(t);
                 var ol = event.clientX - box1.offsetLeft;
                 var ot = event.clientY - box1.offsetTop;
-                console.log(ol);
-                console.log(ot);
+                // console.log(ol);
+                // console.log(ot);
 
-                document.onmousemove = function(event) {
+                document.onmousemove = function (event) {
                     //the drag element follows the mouse as it moves onmousemove
                     //get the mouse coordinates
                     event = event || window.event;
@@ -49,7 +53,7 @@
                     box1.style.top = top + "px";
                 };
                 //mouse is unpressed over an HTML element
-                document.onmouseup = function(){
+                document.onmouseup = function () {
                     document.onmousemove = null;
                     document.onmouseup = null;
                 };
